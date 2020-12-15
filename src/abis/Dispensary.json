@@ -1,0 +1,1520 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "addToAdmins",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "addToCashiers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "addToManagers",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "cannabinoid",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "effectDesc",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "cannabinoidCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "cannabinoidProfileCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "cashier",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "category",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "desc",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "categoryCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_effectDesc",
+				"type": "string"
+			}
+		],
+		"name": "createCannabinoid",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_desc",
+				"type": "string"
+			}
+		],
+		"name": "createCategory",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_dob",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_licenseNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_phone",
+				"type": "string"
+			}
+		],
+		"name": "createCustomer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_roleId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_payScheduleName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_startDate",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "_isActive",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_totalAnnualPay",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_payScheduleId",
+				"type": "uint256"
+			}
+		],
+		"name": "createEmployee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_taxRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_nickname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_street",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_city",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_state",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_zip",
+				"type": "string"
+			}
+		],
+		"name": "createLocation",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_employeeId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_payScheduleName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_totalAnnualPay",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_payScheduleId",
+				"type": "uint256"
+			}
+		],
+		"name": "createPayModel",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_payModelId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_paymentId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_employeeId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_paymentAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_taxRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_taxPayment",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_dateTime",
+				"type": "string"
+			}
+		],
+		"name": "createPayStub",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_categoryId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_cost",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_locations",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_terpenes",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_cannabinoids",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_terpeneConcentrations",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_cannabinoidConcentrations",
+				"type": "uint256[]"
+			}
+		],
+		"name": "createProduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_roleName",
+				"type": "string"
+			}
+		],
+		"name": "createRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_flavorDesc",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_effectDesc",
+				"type": "string"
+			}
+		],
+		"name": "createTerpene",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "customer",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "dob",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "licenseNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "phone",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "isRegistered",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "customerAccess",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "customerCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "customers",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "dob",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "licenseNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "phone",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "isRegistered",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "employee",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "payModelId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "roleId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "startDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "inactivatedDate",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "isActive",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "employeeCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "employees",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "payModelId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "roleId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "startDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "inactivatedDate",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "isActive",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productId",
+				"type": "uint256"
+			}
+		],
+		"name": "fetchProduct",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_categoryName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_productCost",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_locations",
+				"type": "uint256[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "terpenes",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "cannabinoids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "terpeneConcentrations",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "cannabinoidConcentrations",
+						"type": "uint256[]"
+					}
+				],
+				"internalType": "struct ProductStorage.ProductProfile",
+				"name": "_productProfile",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_purchaseId",
+				"type": "uint256"
+			}
+		],
+		"name": "fetchReceipt",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "purchaser",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "products",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "quantities",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountTax",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "taxRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rawTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "customerId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "locationId",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct ProductStorage.PurchaseReceipt",
+				"name": "_receipt",
+				"type": "tuple"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_products",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_quantities",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_categoryId",
+				"type": "uint256"
+			}
+		],
+		"name": "getCategoryName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "_categoryName",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_employeeId",
+				"type": "uint256"
+			}
+		],
+		"name": "getPaymentAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_paymentAmount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "location",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "taxRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "nickname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "street",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "city",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "state",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "zip",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "locationCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "manager",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "payModelCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "paymentCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "paymodel",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "employeeId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "payScheduleName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalAnnualPay",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "payScheduleId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "paystub",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "paymentId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "employeeId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "paymentAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "taxRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "taxesPaid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "dateTime",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "product",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "categoryId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cost",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "quantity",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "prouctProfileId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "productCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "productprofile",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "purchase",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "purchaser",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amountTotal",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amountTax",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "taxRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "rawTotal",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "customerId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "locationId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "purchaseCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "_productIds",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_quantities",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_locationId",
+				"type": "uint256"
+			}
+		],
+		"name": "purchaseProducts",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_rawTotal",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_taxAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_cost",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "role",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "roleCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "terpene",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "flavorDesc",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "effectDesc",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "terpeneCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "transactionCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_roleId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_inactivatedDate",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "_isActive",
+				"type": "bool"
+			}
+		],
+		"name": "updateEmployee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
