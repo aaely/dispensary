@@ -129,10 +129,10 @@ export default class Dashboard extends Component {
         )
     }
 
-    renderGoerliMobileFailure = () => {
+    renderKovanMobileFailure = () => {
         return(
             <div>
-                <h3 style={{backgroundColor: 'red'}}>You are not connected to the Goerli Network <br /> 
+                <h3 style={{backgroundColor: 'red'}}>You are not connected to the Kovan Network <br /> 
                 Please go back the to previous page for instructions on how to do this. <br />
                 After changing networks, you will need to refresh the browser page.</h3>
                 <br />
@@ -141,12 +141,12 @@ export default class Dashboard extends Component {
         )
     }
 
-    renderGoerliPCFailure = () => {
+    renderKovanPCFailure = () => {
         return(
             <div>
-                <h3>You will need to set metamask to the Goerli Network</h3>
+                <h3>You will need to set metamask to the Kovan Network</h3>
                 <br />
-                {this.state.networkId !== 5 && <h3 style={{backgroundColor: 'red'}} >You are not connected to the correct network <br /> Please connect to the Goerli network and refresh the page</h3>}
+                {this.state.networkId !== 5 && <h3 style={{backgroundColor: 'red'}} >You are not connected to the correct network <br /> Please connect to the Kovan network and refresh the page</h3>}
                 <h5>Step 1:</h5>
                 <br />
                 <img src={img2} alt='Metamask 2' style={{marginLeft: 'auto', marginRight: 'auto', borderStyle: 'solid', borderColor: 'black', borderWidth: '3px', marginTop: '10px', maxWidth: window.screen.availWidth}} />
@@ -155,17 +155,17 @@ export default class Dashboard extends Component {
                 <br />
                 <img src={img3} alt='Metamask 3' style={{marginLeft: 'auto', marginRight: 'auto', borderStyle: 'solid', borderColor: 'black', borderWidth: '3px', marginTop: '10px', maxWidth: window.screen.availWidth}} />
                 <br />
-                <h3 style={{backgroundColor: 'red', marginTop: '5px'}} >You are currently not connected to the Goerli Network, please follow the above instructions and refresh the page</h3>
+                <h3 style={{backgroundColor: 'red', marginTop: '5px'}} >You are currently not connected to the Kovan Network, please follow the above instructions and refresh the page</h3>
                 <Button onClick={this.decrementTab} color='danger' style={{margin: '0 auto', marginRight: '5px', marginLeft: '5px', marginTop: '5px'}} >Go Back</Button>
                 {this.state.networkId === 5 && <Button onClick={this.incrementTab} color='success' style={{margin: '0 auto', marginRight: '5px', marginLeft: '5px', marginTop: '5px'}} >I am on Goerli</Button>}
             </div>
         )
     }
 
-    renderGoerliSuccess = () => {
+    renderKovanSuccess = () => {
         return(
             <div>
-                <h3 style={{backgroundColor: 'green'}}>You are currently connected to the Goerli Network, please proceed to get funds</h3>
+                <h3 style={{backgroundColor: 'green'}}>You are currently connected to the Kovan Network, please proceed to get funds</h3>
                 <Button onClick={this.decrementTab} color='danger' style={{margin: '0 auto', marginRight: '5px', marginLeft: '5px', marginTop: '5px'}} >Go Back</Button>
                 {this.state.networkId === 42 && <Button onClick={this.incrementTab} color='success' style={{margin: '0 auto', marginRight: '5px', marginLeft: '5px', marginTop: '5px'}} >Proceed</Button>}
             </div>
@@ -229,9 +229,9 @@ export default class Dashboard extends Component {
                     {this.state.tabId === 0 && this.renderMobilePC()}
                     {this.state.tabId === 1 && this.state.path === 'PC' && this.renderMetamaskLink()}
                     {this.state.tabId === 1 && this.state.path === 'Mobile' && this.renderCoinbaseWallet()}
-                    {this.state.tabId === 2 && this.state.networkId === 42 && this.renderGoerliSuccess()}
-                    {this.state.tabId === 2 && this.state.networkId !== 42 && this.state.path === 'Mobile' && this.renderGoerliMobileFailure()}
-                    {this.state.tabId === 2 && this.state.networkId !== 42 &&  this.state.path === 'PC' && this.renderGoerliPCFailure()}
+                    {this.state.tabId === 2 && this.state.networkId === 42 && this.renderKovanSuccess()}
+                    {this.state.tabId === 2 && this.state.networkId !== 42 && this.state.path === 'Mobile' && this.renderKovanMobileFailure()}
+                    {this.state.tabId === 2 && this.state.networkId !== 42 &&  this.state.path === 'PC' && this.renderKovanPCFailure()}
                     {this.state.tabId === 3 && this.renderLink()}
                     {this.state.tabId === 4 && <Link to='/Dashboard'
                                                  style={{fontSize: '40px'}}

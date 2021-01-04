@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardTitle, CardText } from 'reactstrap'
-import Dispensary from '../abis/Dispensary.json'
+import { Link } from 'react-router-dom'
+import loadContract from '../utils/loadContract'
 import loadWeb3 from '../utils/loadWeb3'
+import Cart from './Cart'
+import { FaCartPlus } from 'react-icons/fa'
 
 export default class Products extends Component {
 
@@ -14,14 +17,15 @@ export default class Products extends Component {
             products: [],
             cart: [],
             loading: false,
-            totalCost: 0
+            totalCost: 0,
+            isCollapsed: true
         }
     }
 
     async componentDidMount() {
         try {
             await loadWeb3()
-            const dispensary = await this.loadContract()
+            const dispensary = await loadContract()
             const productCount = await dispensary.methods.productCount().call()
             for(let i = 1; i <= productCount; i++) {
                 const product = await dispensary.methods.fetchProduct(i).call()
@@ -34,11 +38,6 @@ export default class Products extends Component {
         } catch(error) {
             console.log(error)
         }
-    }
-
-    async loadContract() {
-        const web3 = window.web3
-        return new web3.eth.Contract(Dispensary, "0xc4851e498AF8EA8C63EA6b9E71Bec07c402d405C") 
     }
 
     getProduct = async (_id) => {
@@ -60,8 +59,7 @@ export default class Products extends Component {
             cart: newCart
         })
         setTimeout(() => { this.setState({ loading: false}) }, 200)
-        let totalCost = this.updateTotalCost()
-        setTimeout(() => { this.setState({ totalCost }) }, 200)
+        this.updateTotalCost()
     }
 
     addToCart = (id, name, catName, cost, quantity) => {
@@ -69,78 +67,98 @@ export default class Products extends Component {
         let item = { id, name, catName, cost, quantity }
         let newCart = this.state.cart
         let index = newCart.findIndex(x => x.id === id);
+        console.log(index)
         if (index >= 0) {
             newCart[index].quantity = newCart[index].quantity + quantity
-            newCart[index].cost = cost * newCart[index].quantity
             this.setState({cart: newCart})
             this.updateTotalCost()
             console.log('updated existing item')
             }
         if (index < 0 && newCart.length >= 1) {
             this.setState({ cart: [...this.state.cart, item]})
-            setTimeout(() => {this.updateTotalCost()}, 500)
+            setTimeout(() => {this.updateTotalCost()}, 100)
             console.log('new item added')
             }
         if (index < 0 && newCart.length === 0) {
-            this.setState({ cart: [...this.state.cart, item], totalCost: cost*quantity })
+            this.setState({ cart: [...this.state.cart, item] })
+            setTimeout(() => {this.setState({ totalCost: cost * quantity})}, 100)
             console.log('first item')
             }
         setTimeout(() => { this.setState({ loading: false}) }, 500)
-        setTimeout(() => { console.log(this.state.cart) }, 500)
-        this.updateTotalCost()
     }
 
-    updateTotalCost = () => {
+    updateTotalCost = async () => {
         let totalCost = 0
         for(let i = 0; i < this.state.cart.length; i++) {
             let cart = this.state.cart
-            totalCost = parseInt(totalCost) + parseInt(cart[i].cost)
-            console.log(totalCost)
+            totalCost = parseInt(totalCost) + (parseInt(cart[i].cost) * parseInt(cart[i].quantity))
         }
-        console.log(totalCost)
         this.setState({ totalCost })
     }
+
+    handleCollapsed = () => {
+        this.setState({ isCollapsed: !this.state.isCollapsed })
+    }
     
+    renderCart() {
+        return(
+            <React.Fragment>
+                <a href='#' onClick={this.handleCollapsed}>
+                <FaCartPlus />
+                {this.state.cart.length}
+                </a>
+                <Cart cart={this.state.cart} totalCost={this.state.totalCost} action1={this.removeFromCart} />
+                <Link to={{
+                pathname: '/checkout',
+                state: {
+                        cart: this.state.cart,
+                        totalCost: this.state.totalCost
+                    }
+                }} >
+                    Checkout
+                </Link>
+            </React.Fragment>
+        )
+    }
+
     render() {
         return(
-            <div>
-                {this.state.cart.map(cart => {
-                    return(
-                        <React.Fragment>
-                            {cart.id}   <Button color='danger' onClick={this.removeFromCart.bind(this, cart.id)} >Remove</Button><br />
-                            {cart.name} <br />
-                            {cart.catName} <br />
-                            {cart.cost} <br />
-                            {cart.quantity} <br />
-                        </React.Fragment>
-                    )
-                })}
-                <p>Total cost: $ {this.state.totalCost} </p>
+            <div style={{marginTop: '3%'}}>
+                <h2 style={{textAlign: 'center', marginBottom: '5%'}}>Available Products</h2>
                 {this.state.products.map(a => {
                     return(
-                        <Row style={{display: 'inline-block', marginLeft: '10%', marginRight: '10%'}} key={a._productProfile.productId} >
-                            <Col sm="20">
+                        <Row style={{display: 'inline-block', marginLeft: '10%', marginRight: '10%'}} key={a.productProfile.productId} >
+                            <Col sm="20" >
                                 <Card body>
-                                    <CardTitle style={{textAlign: 'center'}} >{a._name}</CardTitle>
-                                    
-                                    <CardText>{a._categoryName}</CardText>
-                                    
-                                    <CardText>{a._quantity}</CardText>
-                                    
-                                    <CardText>${a._productCost} per gram</CardText>
 
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a._productProfile.productId, a._name, a._categoryName, a._productCost, 1)}>1 Gram</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a._productProfile.productId, a._name, a._categoryName, a._productCost, 3)}>1/8</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a._productProfile.productId, a._name, a._categoryName, a._productCost, 7)}>1/4</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a._productProfile.productId, a._name, a._categoryName, a._productCost, 14)}>1/2</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a._productProfile.productId, a._name, a._categoryName, a._productCost, 28)}>1 Oz</Button>}
+                                    <CardTitle style={{textAlign: 'center'}} ><Link to={`/product/${a.productProfile.productId}`}>{a.name}</Link></CardTitle>
+                                    
+                                    <CardText>{a.categoryName}</CardText>
+                                    
+                                    <CardText>{a.quantity}</CardText>
+                                    
+                                    <CardText>${a.productCost} per gram</CardText>
+
+                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 1)}>1 Gram</Button>}
+                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 3)}>1/8</Button>}
+                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 7)}>1/4</Button>}
+                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 14)}>1/2</Button>}
+                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 28)}>1 Oz</Button>}
 
                                 </Card>
                             </Col>
                         </Row>
                     )
-                })}    
-                
+                })}
+                {!this.state.isCollapsed && 
+                <div style={{marginLeft: 'auto', marginRight: 'auto', textAlign: 'center'}} >
+                    <a href='#' onClick={this.handleCollapsed}>
+                        Cart {'\u00A0'}
+                    <FaCartPlus />
+                    {this.state.cart.length}
+                    </a>
+                </div>} 
+                {this.state.isCollapsed && this.state.cart.length > 0 && <div style={{maxWidth: '30%', marginLeft: 'auto', marginRight: 'auto'}}>{this.renderCart()}</div>}
             </div>
         )
     }

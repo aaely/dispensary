@@ -105,6 +105,9 @@ abstract contract ProductStorage is UserStorage {
     function createTerpene(string memory _name, string memory _flavorDesc, string memory _effectDesc) public {
         
         require(UserStorage.admin[msg.sender] == true || UserStorage.manager[msg.sender] == true);
+        require(bytes(_name).length > 0, "Name is a required field");
+        require(bytes(_flavorDesc).length > 0, "Flavor Description is a required field");
+        require(bytes(_effectDesc).length > 0, "Effect Description is a required field");
         
         terpeneCount++;
         
@@ -114,6 +117,8 @@ abstract contract ProductStorage is UserStorage {
     function createCannabinoid(string memory _name, string memory _effectDesc) public {
         
         require(UserStorage.admin[msg.sender] == true || UserStorage.manager[msg.sender] == true);
+        require(bytes(_name).length > 0, "Name is a required field");
+        require(bytes(_effectDesc).length > 0, "Effect Description is a required field");
         
         cannabinoidCount++;
         
@@ -170,10 +175,15 @@ abstract contract ProductStorage is UserStorage {
         
         purchaseCount++;
         
+        UserStorage.Customer storage _customer = UserStorage.customer[msg.sender];
+        _customer.purchaseIds.push(purchaseCount);
+        
         purchase[purchaseCount] = PurchaseReceipt(purchaseCount, msg.sender, _productIds, _quantities, _cost, _taxAmount, location[_locationId].taxRate, _rawTotal, UserStorage.customer[msg.sender].id, _locationId);
         
-        
     }
-
+    
+    function getLength() public view returns (uint256) {
+        return UserStorage.customer[msg.sender].purchaseIds.length;
+    }
     
 }

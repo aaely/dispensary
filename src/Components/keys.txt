@@ -1,0 +1,3 @@
+Public Key	02afd67697053b4d1d5f424e2de510025ede045ffe9e5ae028a98884cba2df330e
+Private Key	9b986b39922d77e56a16fabc60d7cb70284ba8e4cbbbecafd0ed64cbe73e3fd1
+Auth ID	TfKvcwa3Cui8ueNfpQuL2kZu2yu4B8767Y6

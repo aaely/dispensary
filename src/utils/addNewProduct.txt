@@ -1,0 +1,17 @@
+[{
+    "_id": "product$1",
+    "handle": "product_PineappleExpress",
+    "name": "PineappleExpress",
+    "category": 492581209243649,
+    "cost": 13,
+    "inventory": 957,
+    "productProfileId": "productprofile$product"
+},
+{
+    "_id": "productprofile$product",
+    "productId": "product$1",
+    "cannabinoidIds": [439804651110401,439804651110402],
+    "cannabinoidConcentrations": [25,8],
+    "terpeneIds": [457396837154817,457396837154818],
+    "terpeneConcentrations": [6,2]
+}]

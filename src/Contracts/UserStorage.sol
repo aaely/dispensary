@@ -37,6 +37,7 @@ abstract contract UserStorage {
         string licenseNumber;
         string email;
         string phone;
+        uint[] purchaseIds;
         bool isRegistered;
     }
     
@@ -102,8 +103,8 @@ abstract contract UserStorage {
         
         customerCount++;
         
-        customers[customerCount] = Customer(customerCount, msg.sender, _firstName, _lastName, _dob, _licenseNumber, _email, _phone, true);
-        customer[msg.sender] = Customer(customerCount, msg.sender, _firstName, _lastName, _dob, _licenseNumber, _email, _phone, true);
+        customers[customerCount] = Customer(customerCount, msg.sender, _firstName, _lastName, _dob, _licenseNumber, _email, _phone, new uint[](0), true);
+        customer[msg.sender] = Customer(customerCount, msg.sender, _firstName, _lastName, _dob, _licenseNumber, _email, _phone, new uint[](0), true);
         
         customerAccess[msg.sender] = true;
         
