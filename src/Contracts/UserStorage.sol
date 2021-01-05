@@ -8,6 +8,8 @@ import "./SafeMath.sol";
 
 abstract contract UserStorage {
     
+    address payable owner;
+
     uint public customerCount;
     uint public employeeCount;
     uint public roleCount;

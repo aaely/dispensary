@@ -167,7 +167,7 @@ abstract contract ProductStorage is UserStorage {
             product[_productIds[i]] = _product;
         }
         
-        _taxAmount = SafeMath.div((_rawTotal*100) * location[_locationId].taxRate, 100);
+        _taxAmount = SafeMath.div(_rawTotal * location[_locationId].taxRate, 100);
         
         _cost = _taxAmount + _rawTotal;
         
@@ -179,6 +179,8 @@ abstract contract ProductStorage is UserStorage {
         _customer.purchaseIds.push(purchaseCount);
         
         purchase[purchaseCount] = PurchaseReceipt(purchaseCount, msg.sender, _productIds, _quantities, _cost, _taxAmount, location[_locationId].taxRate, _rawTotal, UserStorage.customer[msg.sender].id, _locationId);
+        
+        //UserStorage.owner.transfer(msg.value);
         
     }
     

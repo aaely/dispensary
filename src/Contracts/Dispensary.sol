@@ -6,15 +6,11 @@ pragma experimental ABIEncoderV2;
 import {ProductStorage} from "./ProductStorage.sol";
 import {UserStorage} from "./UserStorage.sol";
 
-
-
 contract Dispensary is ProductStorage {
     
-    address payable owner;
-
     constructor() {
-        owner = msg.sender;
-        
+        UserStorage.owner = msg.sender;
+        UserStorage.addToAdmins(msg.sender);
         UserStorage.createRole("admin");
         //UserStorage.createRole("cashier");
         //UserStorage.createRole("manager");
@@ -23,12 +19,11 @@ contract Dispensary is ProductStorage {
         ProductStorage.createCategory("Butane Concentrates", "Extracted with butane");
         ProductStorage.createCategory("CO2 Concentrates", "Extracted with CO2");
         
-        UserStorage.createCustomer("aaron", "ely", "March 18 1989", "123LicNum456", "aaron.ely@hotmail.com", "913-547-2476");
+        UserStorage.createCustomer("firstname", "lastname", "January 1 2000", "123LicNum456", "email@blah.com", "555-555-5555");
         ProductStorage.createLocation(15,"Henderson", "9480 S Eastern Ave #185", "Las Vegas", "NV", "89123");
         ProductStorage.createLocation(15,"Las Vegas", "2550 S Rainbow Blvd #8", "Las Vegas", "NV", "89146");
-        UserStorage.createEmployee(0xBcA3320e93C54513A467Bb517dC25f9Eba15e779, 1, "Aaron", "Ely", "Blockchain Dev", "Bi-Weekly", "Dec 21 2020", true, 100000, 1);
+        //UserStorage.createEmployee(0xBcA3320e93C54513A467Bb517dC25f9Eba15e779, 1, "Aaron", "Ely", "Blockchain Dev", "Bi-Weekly", "Dec 21 2020", true, 100000, 1);
         //UserStorage.createEmployee(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, 2, "Aaron", "Ely", "Cashier", "Bi-Weekly", "December 11 2020", true, 70000, 2);
-        UserStorage.addToAdmins(0xBcA3320e93C54513A467Bb517dC25f9Eba15e779);
         ProductStorage.createCannabinoid("THC", "Main psychoactive ingredient in cannabis. Largely responsible for the altered perception experienced.");
         ProductStorage.createCannabinoid("CBD", "Calming with anti inflammatory and general well being benefits.");
         ProductStorage.createTerpene("pinene",  "Pine like aroma with a vicks vapor rub like scent", "Expands larynx and opens lungs");
