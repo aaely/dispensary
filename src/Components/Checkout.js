@@ -16,7 +16,8 @@ export default class Checkout extends Component {
             account: '',
             cart: this.props.location.state.cart || [],
             loading: false,
-            totalCost: this.props.location.state.totalCost || 0
+            totalCost: this.props.location.state.totalCost || 0,
+            isRegistered: false
         }
     }
 
@@ -25,7 +26,8 @@ export default class Checkout extends Component {
             await loadWeb3()
             const account = await loadAccount()
             const dispensary = await loadContract()
-            this.setState({ dispensary, account })
+            const isRegistered = await dispensary.methods.customerAccess(account).call()
+            this.setState({ dispensary, account, isRegistered })
             console.log(this.state.cart)
         } catch(error) {
             console.log(error)
@@ -90,12 +92,17 @@ export default class Checkout extends Component {
             this.setState({ loading: false })
         }
     }
+
+    navigateTo() {
+        window.location.href='/registercustomer'
+    }
     
     render() {
         return(
             <div style={{display: 'block', maxWidth: '70%'}} >
                {!this.state.loading && <Cart cart={this.state.cart} totalCost={this.state.totalCost} action1={this.removeFromCart} />}
-               {!this.state.loading && <Button color='success' onClick={this.purchase.bind(this)}>Purchase</Button>}  
+               {!this.state.loading && this.state.isRegistered && <Button color='success' onClick={this.purchase.bind(this)}>Purchase</Button>}
+               {!this.state.loading && !this.state.isRegistered && <Button color='success' onClick={this.navigateTo.bind(this)} >Registration Required before Purchase</Button>}  
                {this.state.loading && <Loader />} 
             </div>
         )

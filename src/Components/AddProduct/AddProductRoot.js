@@ -39,7 +39,8 @@ export default class AddProduct extends Component {
             const dispensary = await loadContract()
             this.setState({ dispensary, account })
             const productCount = await this.state.dispensary.methods.productCount().call()
-            this.setState({ dispensary, productCount, loading: false })
+            await this.isManager()
+            this.setState({ productCount, loading: false })
             console.log(this.state)
         } catch(error) {
             console.log(error)
@@ -52,6 +53,11 @@ export default class AddProduct extends Component {
         await this.state.dispensary.methods.createProduct(this.state.name, this.state.category, this.state.cost, this.state.quantity, this.state.locations, this.state.terpenes, this.state.cannabinoids, this.state.terpeneConcentrations, this.state.cannabinoidConcentrations).send({from: this.state.account})
         this.props.history.push('/products')
         this.setState({ loading: false })
+    }
+
+    isManager = async () => {
+        let isManager = await this.state.dispensary.methods.manager(this.state.account).call()
+        this.setState({ isManager })
     }
 
     incrementTabId = () => {
@@ -146,7 +152,8 @@ export default class AddProduct extends Component {
                 <br />
                 {this.state.tabId === 3 && <Button style={{marginBottom: '1%', margintop: '1%'}} color='danger' onClick={this.decrementTabId.bind(this)} >Back</Button> }
                 <br />
-                {this.state.tabId === 3 && <Button style={{marginTop: '1%'}} onClick={this.createProduct}>Create Product</Button>}
+                {this.state.tabId === 3 && this.state.isManager && <Button style={{marginTop: '1%'}} onClick={this.createProduct}>Create Product</Button>}
+                {this.state.tabId === 3 && !this.state.isManager && <Button style={{marginTop: '1%'}} >Manager priveleges required</Button>}
             </React.Fragment>
         )
     }

@@ -33,6 +33,7 @@ export default class Purchases extends Component {
             const purchases = await dispensary.methods.getReceipts(account).call()
             for(let i = 0; i < purchases.length; i++) {
                 const receipt = await dispensary.methods.fetchReceipt(purchases[i]).call()
+                console.log(receipt)
                 this.setState({ receipts: [...this.state.receipts, receipt]})
             }
 
@@ -75,19 +76,19 @@ export default class Purchases extends Component {
             <div>
                 {this.state.receipts.map((a, index) => {
                     return(
-                        <Row style={{display: 'inline-block', marginLeft: '10%', marginRight: '10%'}} key={a._receipt.id} >
+                        <Row style={{display: 'inline-block', marginLeft: '10%', marginRight: '10%'}} key={a.id} >
                             <Col sm="20">
                                 <Card body>
 
                                     <CardTitle style={{textAlign: 'center'}} >Purchase #{index + 1}</CardTitle>
                                     
-                                    <CardText>Total before tax: ${a._receipt.rawTotal}</CardText>
+                                    {<CardText>Total before tax: ${a.rawTotal}</CardText>}
                                     
-                                    <CardText>Tax: ${a._receipt.amountTax}</CardText>
+                                    <CardText>Tax: ${a.amountTax}</CardText>
                                     
-                                    <CardText>Total: ${a._receipt.amountTotal}</CardText>
+                                    <CardText>Total: ${a.amountTotal}</CardText>
                                     
-                                    <ReceiptDetails dispensary={this.state.dispensary} products={a._receipt.products} quantities={a._receipt.quantities} />
+                                    <ReceiptDetails dispensary={this.state.dispensary} products={a.products} quantities={a.quantities} />
 
                                 </Card>
                             </Col>

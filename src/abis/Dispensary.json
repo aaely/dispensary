@@ -1022,18 +1022,8 @@
 					}
 				],
 				"internalType": "struct ProductStorage.PurchaseReceipt",
-				"name": "_receipt",
+				"name": "receipt",
 				"type": "tuple"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "_products",
-				"type": "uint256[]"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "_quantities",
-				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "view",

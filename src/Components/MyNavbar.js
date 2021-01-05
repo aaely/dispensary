@@ -48,6 +48,9 @@ import {
                                 <NavItem>
                                     <NavLink href="/addproduct" style={{color: 'rgb(0, 255, 34)'}} >Add New Product</NavLink>
                                 </NavItem>
+                                <NavItem>
+                                    <NavLink href="/registercustomer" style={{color: 'rgb(0, 255, 34)'}} >Customer Registration</NavLink>
+                                </NavItem>
                             </Nav>
                         </Collapse>
             </Navbar>
