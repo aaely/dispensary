@@ -221,7 +221,7 @@ export default class Dashboard extends Component {
         
           return(
             <div style={{marginLeft: '5%', marginRight: '5%', marginTop: '3%', textAlign: 'center', backgroundImage: `url(${EtherLogo})`, backgroundPosition: 'center', backgroundSize: 'contain'}} >
-                <h1 style={{textAlign: 'center'}}>Welcome to The Source</h1>
+                <h1 style={{textAlign: 'center'}}>Welcome to DispensaryName</h1>
                 <br />
                 <h3>This app is a dispensary user managerment and POS system that runs on the Ethereum Blockchain</h3>
                 <br />
