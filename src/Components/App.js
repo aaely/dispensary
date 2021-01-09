@@ -21,6 +21,7 @@ import CreateCannabinoid from './CreateCannabinoid'
 import Purchases from './Purchases'
 import RegistrationForm from './RegistrationForm'
 import MyNavbar from './MyNavbar'
+import Employees from './Employees'
 
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
           <Route component={CreateTerpene} path="/addterpene" />
           <Route component={Purchases} path="/mypurchases" />
           <Route component={RegistrationForm} path="/registercustomer" />
+          <Route component={Employees} path="/employees" />
         </Switch>
         </React.Fragment>
       </Router>

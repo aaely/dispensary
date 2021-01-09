@@ -57,7 +57,11 @@ export default class ProductDetails extends Component {
                 <br />
                 <h3 style={{textAlign: 'center'}} >Inventory: {this.state.product.quantity}</h3>
                 <br />
+                <div style ={{margin: 'auto', maxWidth: '25%'}}>
+                    <img src={`${this.state.product.img}`} alt={this.state.product.id} />
+                </div>
                 <h1 style={{textAlign: 'center', marginTop: '5%'}} >Terpenes: </h1>
+                <br />
                 <Table style={{maxWidth: '70%', marginTop: '2%', marginLeft: 'auto', marginRight: 'auto'}} striped>
                     <thead>
                         <tr>

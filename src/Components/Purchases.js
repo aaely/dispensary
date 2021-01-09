@@ -29,15 +29,9 @@ export default class Purchases extends Component {
             await loadWeb3();
             const account = await loadAccount()
             const dispensary = await loadContract();
-            this.setState({ account, dispensary })
-            const purchases = await dispensary.methods.getReceipts(account).call()
-            for(let i = 0; i < purchases.length; i++) {
-                const receipt = await dispensary.methods.fetchReceipt(purchases[i]).call()
-                console.log(receipt)
-                this.setState({ receipts: [...this.state.receipts, receipt]})
-            }
-
-            this.setState({ loading: false })
+            const receipts = await dispensary.methods.getMyPurchases(account).call()
+            console.log(dispensary)
+            this.setState({ account, dispensary, receipts, loading: false })
             console.log(this.state)
             /*const ethUSD = await getLiveETHUSD();
             this.setState({

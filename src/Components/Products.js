@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input, Row, Col, Card, CardTitle, CardText } from 'reactstrap'
+import { Button, Row, Col, Card, CardTitle, CardText } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import loadContract from '../utils/loadContract'
 import loadWeb3 from '../utils/loadWeb3'
@@ -29,8 +29,6 @@ export default class Products extends Component {
             const productCount = await dispensary.methods.productCount().call()
             for(let i = 1; i <= productCount; i++) {
                 const product = await dispensary.methods.fetchProduct(i).call()
-                //const newValue = await this.getLocationName(product._locations[0])
-                console.log(product)
                 this.setState({ products: [...this.state.products, product]})
             }
             console.log(this.state.products)
@@ -132,7 +130,7 @@ export default class Products extends Component {
                                 <Card body>
 
                                     <CardTitle style={{textAlign: 'center'}} ><Link to={`/product/${a.productProfile.productId}`}>{a.name}</Link></CardTitle>
-                                    
+                                                                        
                                     <CardText>{a.categoryName}</CardText>
                                     
                                     <CardText>{a.quantity}</CardText>
@@ -140,10 +138,10 @@ export default class Products extends Component {
                                     <CardText>${a.productCost} per gram</CardText>
 
                                     {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 1)}>1 Gram</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 3)}>1/8</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 7)}>1/4</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 14)}>1/2</Button>}
-                                    {this.state.loading === false && <Button color='success' onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 28)}>1 Oz</Button>}
+                                    {this.state.loading === false && <Button color='success' style={{marginTop: '2%'}} onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 3)}>1/8</Button>}
+                                    {this.state.loading === false && <Button color='success' style={{marginTop: '2%'}} onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 7)}>1/4</Button>}
+                                    {this.state.loading === false && <Button color='success' style={{marginTop: '2%'}} onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 14)}>1/2</Button>}
+                                    {this.state.loading === false && <Button color='success' style={{marginTop: '2%'}} onClick={this.addToCart.bind(this, a.productProfile.productId, a.name, a.categoryName, a.productCost, 28)}>1 Oz</Button>}
 
                                 </Card>
                             </Col>

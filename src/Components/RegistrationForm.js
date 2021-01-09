@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import loadContract from '../utils/loadContract'
 import loadWeb3 from '../utils/loadWeb3'
 import loadAccount from '../utils/loadAccount'
+import Loader from './Loader'
 
 
 export default class RegistrationForm extends Component {
@@ -73,7 +74,7 @@ export default class RegistrationForm extends Component {
         try {
             this.setState({ loading: true })
             await this.state.dispensary.methods.createCustomer(this.state.firstName, this.state.lastName, this.state.dob, this.state.license, this.state.email, this.state.phone).send({from: this.state.account})
-            this.setState({ loading: false })
+            this.props.history.push('/products')
         } catch(error) {
             this.setState({ loading: false })
             console.log(error);
@@ -115,7 +116,8 @@ export default class RegistrationForm extends Component {
         return(
             <div>
                 {this.state.loading === false && this.renderForm()}
-                <Button color='success' onClick={this.registerCustomer.bind(this)}>Register</Button>
+                {this.state.loading === false && <Button color='success' onClick={this.registerCustomer.bind(this)}>Register</Button>}
+                {this.state.loading === true && <Loader />}
             </div>
         )
     }

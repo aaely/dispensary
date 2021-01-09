@@ -102,8 +102,8 @@ export default class Checkout extends Component {
             <div style={{display: 'block', maxWidth: '70%'}} >
                {!this.state.loading && <Cart cart={this.state.cart} totalCost={this.state.totalCost} action1={this.removeFromCart} />}
                {!this.state.loading && this.state.isRegistered && <Button color='success' onClick={this.purchase.bind(this)}>Purchase</Button>}
-               {!this.state.loading && !this.state.isRegistered && <Button color='success' onClick={this.navigateTo.bind(this)} >Registration Required before Purchase</Button>}  
-               {this.state.loading && <Loader />} 
+               {!this.state.loading && !this.state.isRegistered && <Button color='success' onClick={this.navigateTo.bind(this)} >Registration Required before Purchase Click Here to Register</Button>}  
+               {this.state.loading === true && <Loader />} 
             </div>
         )
     }

@@ -1,4 +1,3 @@
-import Web3 from 'web3'
 
 export default async function loadAccount() {
     const web3 = window.web3
